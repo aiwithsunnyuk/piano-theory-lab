@@ -1,10 +1,14 @@
+import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from models import Base
 
-# Replace with your actual local PostgreSQL credentials
-# Format: postgresql://username:password@localhost:5432/database_name
-DATABASE_URL = "sqlite:///piano.db"
+# 1. Dynamically get the absolute path to the current directory
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_PATH = os.path.join(BASE_DIR, "piano.db")
+
+# 2. Use the absolute path for the SQLite connection
+DATABASE_URL = f"sqlite:///{DB_PATH}"
 
 # Create the SQLAlchemy engine
 engine = create_engine(DATABASE_URL)
