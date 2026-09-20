@@ -1,4 +1,4 @@
-from database import SessionLocal
+from database import SessionLocal, init_db
 from models import User, SavedProgression
 
 import streamlit as st
