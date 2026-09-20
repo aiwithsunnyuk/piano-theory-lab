@@ -18,5 +18,8 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 def init_db():
     """Creates all tables in the database if they don't already exist."""
+    # Import models here to ensure they are registered with Base metadata
+    from models import User, SavedProgression 
+    
     Base.metadata.create_all(bind=engine)
     print("Database tables initialized successfully.")

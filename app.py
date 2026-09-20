@@ -1,7 +1,9 @@
+import streamlit as st
 from database import SessionLocal, init_db
 from models import User, SavedProgression
 
-import streamlit as st
+# Force database initialization before anything else runs
+init_db()
 import streamlit.components.v1 as components
 import music21 as m21
 
